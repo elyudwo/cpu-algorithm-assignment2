@@ -58,3 +58,27 @@ int main(void)
   따라서 그래프로 표현하게되면 위의 그림과 같습니다.
 
 
+다음으로는 삽입정렬에 대해 알아보겠습니다.
+템플릿은 기존과 같고 코드는 아래와 같습니다.
+
+```
+    int key;
+   
+    for(int i=1; i < m; i++)
+	{
+        int j;
+        key = array[i];
+        
+        for(j=i-1; j>=0; j--)
+        {
+            if(array[j] > key)
+                array[j+1] = array[j];
+            
+			else
+            	break;
+        }
+        
+        array[j+1] = key;
+    }
+```
+
