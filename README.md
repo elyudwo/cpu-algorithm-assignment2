@@ -10,24 +10,20 @@
 버블정렬부터 시작하겠습니다
 
 ```
-#include <iostream>
-#include <stdlib.h>
-#include <algorithm>
-
-using namespace std;
-
+int array[16] = {32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536,131072,262144,524288,1048576};
 int main(void)
 {
-	cout << "거듭 제곱할 n을 입력하세요: ";
-	int n;
-	cin >> n;
-	int m = 2 << n-1; 
-	
-	int array[m];
+	int m = 16;
 	
 	for(int i=0; i<m; i++) {
-		array[i] = rand() % 100;
-	}
+		for(int j=0; j<m-1-i; j++) {
+			if(array[j] > array[j+1]) {
+				swap(array[j],array[j+1]);
+			}
+		}
+	}    
+	
+
 
 	for(int i=0; i<m; i++) {
 		cout << array[i] << ' ';
@@ -37,17 +33,6 @@ int main(void)
 }
 ```
 
-기본 베이스는 다음과 같이 설정하겠습니다.
-
-```
-	for(int i=0; i<m; i++) {
-		for(int j=0; j<m-1-i; j++) {
-			if(array[j] > array[j+1]) {
-				swap(array[j],array[j+1]);
-			}
-		}
-	} 
-  ```
   버블정렬 코드는 위와같습니다.
   
   위의 코드를 따르는 버블정렬은 어떤 상황이 되었든 O(n^2)의 시간복잡도를 가집니다.
@@ -80,5 +65,8 @@ int main(void)
         
         array[j+1] = key;
     }
-```
+``` 
 
+삽입 정렬은 두번째 자료부터 시작하여 그 앞의 자료들과 비교하여 삽입할 위치를 지정한 후 자료를 뒤로 옮기고 지정한 자리에 자료를 삽입하여 정렬하는 알고리즘입니다.
+
+삽입정렬의 경우 이미 정렬이 된 상황에서는 O()
